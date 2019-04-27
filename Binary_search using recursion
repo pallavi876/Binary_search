@@ -1,0 +1,35 @@
+#include<stdio.h>
+
+void Bin_search(int,int,int);
+int a[10],i;
+void main()
+{
+    int n,l=0,s;
+    printf("\nEnter a number:");
+    scanf("%d",&n);
+    int h=n-1;
+    printf("\nEnter elements:");
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    printf("\nEnter element to search:");
+    scanf("%d",&s);
+    Bin_search(s,l,h);
+}
+
+void Bin_search(int s,int l,int h)
+{
+    if(l<=h)
+    {
+        int mid;
+        mid=(l+h)/2;
+        if(a[mid]==s)
+            printf("\nElement is present at %d",mid+1);
+        if(s<a[mid])
+            Bin_search(s,l,mid-1);
+        if(s>a[mid])
+            Bin_search(s,mid+1,h);
+
+    }
+     else
+            printf("\nElement is not present");
+}
